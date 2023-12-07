@@ -1,23 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import InfoSection from './components/js/InfoSection.js';
+import ContactForm from './components/js/ContactForm.js';
+import Header from './components/js/Header.js';
+import Intro from './components/js/Intro.js';
+import Copyrights from './components/js/Copyrights.js';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Header />
+        <Intro />
+        <InfoSection title = "Education Qualification" />
+        <InfoSection title = "Web Development Qualifications" />
+        <InfoSection title = "Web Automation Qualifications" />
+        <InfoSection title = "Web Automation Qualifications" />
+        <InfoSection title = "Data Processing Qualifications" />
+        <ContactForm />
+        <Copyrights />      
+
     </div>
   );
 }
