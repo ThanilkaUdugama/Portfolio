@@ -1,10 +1,16 @@
 import React from "react";
-
+import Logo from "./Logo";
+import HeaderTabs from "./HeaderTabs";
+import MenuButton from "./MenuButton";
+import ThemeButton from "./ThemeButton";
 
 export default function Header(){
     return(
-        <div className='bg-red-500 h-14 md:h-20 xl:h-24 2xl:h-44'>
-            Header
+        <div className='bg-red-500 w-full h-14 flex justify-between tablet:justify-around fixed'>
+            <MenuButton />
+            <Logo />
+            <HeaderTabs />
+            <ThemeButton />
         </div>
     )
 }

@@ -1,19 +1,12 @@
 import React from 'react';
+import InfoSectionTitle from './Title';
+import InfoSectionContent from './InfoSectionContent';
 
 export default function InfoSection({title}){
     return(
-        <div>
-        <div className='section-header'>
-          {title}
+        <div>    
+            <InfoSectionTitle title = {title} />
+            <InfoSectionContent />
         </div>
-        <div className='section-content'>
-          <div className='section-content-left'>
-            LEFT
-          </div>
-          <div className='section-content-right'>
-            RIGHT
-          </div>
-        </div>
-      </div>
     )
 }

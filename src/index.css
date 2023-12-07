@@ -5,19 +5,19 @@
 
 @layer base{
   .section-header{
-    @apply bg-red-500 h-12 md:h-16 xl:h-20 2xl:h-40;
+    @apply bg-red-500 h-12;
   }
 
   .section-content{
-    @apply flex w-full flex-col md:flex-row;
+    @apply flex w-full mobile-s:flex-col tablet:flex-row;
   }
 
   .section-content-left{
-    @apply bg-yellow-400 md:w-1/2 h-20 md:h-98 xl:h-100;
+    @apply bg-yellow-400 flex min-h-80 min-h-98;
   }
 
   .section-content-right{
-    @apply bg-orange-400 md:w-1/2 h-80 md:h-98 xl:h-100;
+    @apply bg-orange-400 flex w-1/2 min-h-80;
   }
 
 }

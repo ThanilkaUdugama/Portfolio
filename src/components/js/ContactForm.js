@@ -1,15 +1,13 @@
 import React from "react";
-
+import ContactTitle from './Title.js'
 
 export default function ContactForm(){
     return(
-        <diV>
-            <div className='bg-cyan-500 col-span-8 h-20'>
-                Contact ME
-            </div>
+        <div>
+            <ContactTitle title = "CONTACT ME" />
             <div className='bg-indigo-500 col-span-8 h-96'>
                 Contact me form
             </div>
-        </diV>
+        </div>
     )
 }
