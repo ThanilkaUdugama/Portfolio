@@ -4,13 +4,12 @@ import HeaderTabs from "./HeaderTabs";
 import MenuButton from "./MenuButton";
 import ThemeButton from "./ThemeButton";
 
-export default function Header(){
+export default function Header({set_menu_clicked, menu_clicked}){
     return(
-        <div className='bg-red-500 w-full h-14 flex justify-between tablet:justify-around fixed'>
-            <MenuButton />
+        <div className='bg-[#323445] w-full flex justify-between tablet:justify-between items-center fixed p-3 z-10'>
             <Logo />
             <HeaderTabs />
-            <ThemeButton />
+            <MenuButton set_menu_clicked = {set_menu_clicked} menu_clicked = {menu_clicked}/>
         </div>
     )
 }
