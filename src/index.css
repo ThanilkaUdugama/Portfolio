@@ -6,22 +6,11 @@
 @layer base{
   *{
     font-family: 'Poppins', sans-serif;
-  }
-
-  .section-header{
-    @apply bg-red-500 h-12;
+    @apply transition;
   }
 
   .section-content{
-    @apply flex w-full mobile-s:flex-col tablet:flex-row;
-  }
-
-  .section-content-left{
-    @apply bg-yellow-400 flex min-h-80 min-h-98;
-  }
-
-  .section-content-right{
-    @apply bg-orange-400 flex w-1/2 min-h-80;
+    @apply flex w-full flex-col;
   }
 
   .menu-button-clicked > #f1{

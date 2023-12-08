@@ -1,19 +1,10 @@
 import React from 'react';
 import InfoSectionCard from './InfoSectionCard';
 
-export default function InfoSectionContentLeft(){
+export default function InfoSectionContentLeft({cards_data, bg_color, setIndex, index}){
     return(
-        <div className='section-content-left flex flex-wrap mobile-s:w-full tablet:1/2 justify-center items-center py-3 '>
-            <InfoSectionCard />
-            <InfoSectionCard />
-            <InfoSectionCard />
-            <InfoSectionCard />
-            <InfoSectionCard />
-            <InfoSectionCard />
-            <InfoSectionCard />
-            <InfoSectionCard />
-            <InfoSectionCard />
-            <InfoSectionCard />
+        <div className={'bg-['+bg_color+'] section-content-left flex w-full justify-center items-center pb-0 '}>
+            {cards_data && cards_data.map(item => <InfoSectionCard id= {item['id']} title = {item['title']} icon= {item['icon']} active_icon= {item['active_icon']} description= {item['description']} setIndex={setIndex} index = {index}/>)}
         </div>
     )
 }

@@ -11,7 +11,7 @@ export default function IntroLeft(){
     const [word_num, wordNum] = useState(0);
 
     const [reverse, setReverse] = useState(false);
-    let display_names = ['Software Enginner.', 'Data Scientist.', 'Programmer.', 'Ethical Hacker.'];
+    let display_names = ['# Software Enginner.', '# Data Scientist.', '# Programmer.', '# Ethical Hacker.'];
 
     function call(){
         setTimeout(function () { 
@@ -57,7 +57,7 @@ export default function IntroLeft(){
                 </div> */}
 
                 <div className="absolute z-20">
-                    <p className="text-white font-bold translate-y-4">{name}</p>
+                    <p className="text-white bg-black px-2 font-bold translate-y-20">{name}</p>
                 </div>
 
                 <div className=" absolute bg-[#FEC158] mobile-s:h-64 mobile-s:w-64 mobile-m:w-72 mobile-m:h-72 mobile-l:h-80 mobile-l:w-80 laptop-m:h-96 laptop-m:w-96 translate-y-4 rounded-full">
