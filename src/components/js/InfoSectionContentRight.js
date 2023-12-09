@@ -1,10 +1,8 @@
 import React from 'react';
-import InfoSectionCard from './InfoSectionCard';
-import Arrowup from './Arrowup';
 export default function InfoSectionContentRight({bg_color, index, code, section_data}){
     return(
         <div>
-        <div className= {`flex flex-col tablet:flex-row bg-[${bg_color}]`}>
+        <div className= {`flex flex-col tablet:flex-row bg-[${bg_color}] p-20 translate-y-10`}>
             
             <div className='flex flex-col basis-1/2 justify-center items-start p-10'>
                 <p className='text-base text-slate-300 font-normal'>-{section_data[index]['text_1']}</p>
@@ -27,7 +25,7 @@ export default function InfoSectionContentRight({bg_color, index, code, section_
                 
                 <div className='py-2'>
                     <h4 className='text-white text-xl'>{section_data[index]['text_8']}</h4>
-                    <h3 className='text-[#FEAD20] text-2xl font-semibold -my-1'>{section_data[index]['text_9']}</h3>
+                    <h3 className='text-[#FEAD20] text-2xl font-semibold -mt-1 mb-2'>{section_data[index]['text_9']}</h3>
                     <p className='text-base text-slate-300 font-normal'>{section_data[index]['text_14']}</p>
                 </div>
 
@@ -64,11 +62,11 @@ export default function InfoSectionContentRight({bg_color, index, code, section_
                 </div>
             
             
-            <div>
+            <div className='hidden'>
                 
                     {(section_data[index]['table']['cols'] == 1)? <div className='flex font-bold text-xl h-[3rem]'><div className={'flex justify-center items-center bg-[#FEAD20] text-white'}>{section_data[index]['table']['header'][0]}</div></div> :
                     (section_data[index]['table']['cols'] == 2) ? <div className='flex font-bold text-xl h-[3rem]'><div className={'basis-1/2 flex justify-center items-center bg-[#FEAD20] text-white'}>{section_data[index]['table']['header'][0]}</div> <div className='basis-1/2 flex justify-center items-center bg-white text-[#FEAD20]'>{section_data[index]['table']['header'][1]}</div></div>:
-                    <div className='flex font-bold text-xl'><div className={'basis-1/3 flex justify-center items-center h-[3rem] bg-[#FEAD20] text-white'}>{section_data[index]['table']['header'][0]}</div> <div className='basis-1/3 flex justify-center items-center bg-white text-[#FEAD20]'>{section_data[index]['table']['header'][1]}</div><div className='basis-1/3 flex justify-center items-center bg-[#FEAD20] text-white'>{section_data[index]['table']['header'][2]}</div></div>                    
+                     (section_data[index]['table']['cols']) && <div className='flex font-bold text-xl'><div className={'basis-1/3 flex justify-center items-center h-[3rem] bg-[#FEAD20] text-white'}>{section_data[index]['table']['header'][0]}</div> <div className='basis-1/3 flex justify-center items-center bg-white text-[#FEAD20]'>{section_data[index]['table']['header'][1]}</div><div className='basis-1/3 flex justify-center items-center bg-[#FEAD20] text-white'>{section_data[index]['table']['header'][2]}</div></div>                    
                     }
 
                     {
@@ -117,6 +115,8 @@ export default function InfoSectionContentRight({bg_color, index, code, section_
                     }
                 
             </div>
+            
+            {(section_data[index]['table']['data'].length % 2 == 1) && <div className='flex font-semibold text-xl h-[3rem] hidden'></div>}
 
 
         </div>
