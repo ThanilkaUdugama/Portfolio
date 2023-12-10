@@ -77,7 +77,7 @@ function App() {
   
   return (
     <div className="App">
-        <Sidebar menu_clicked = {menu_clicked} activity = {tabs_activity} references = {[intro_ref, qualifications_ref, skills_ref, contact_ref]}/>
+        <Sidebar menu_func = {SetMenuClicked} menu_clicked = {menu_clicked} activity = {tabs_activity} references = {[intro_ref, qualifications_ref, skills_ref, contact_ref]}/>
         <Header set_menu_clicked = {SetMenuClicked} menu_clicked = {menu_clicked} activity = {tabs_activity} references = {[intro_ref, qualifications_ref, skills_ref, contact_ref]}/>
         <div className='body transition'>
           <div ref = {intro_ref} id = "#introduction">

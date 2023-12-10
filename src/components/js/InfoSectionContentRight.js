@@ -2,48 +2,50 @@ import React from 'react';
 export default function InfoSectionContentRight({bg_color, index, code, section_data}){
     return(
         <div>
-        <div className= {`flex flex-col tablet:flex-row bg-[${bg_color}] p-20 translate-y-10`}>
+        <div className= {`mobile-s: pt-10 mobile-s:flex-col mobile-s:items-center mobile-s:p-0 flex tablet:flex-row bg-[${bg_color}] p-20 translate-y-10`}>
             
-            <div className='flex flex-col basis-1/2 justify-center items-start p-10'>
-                <p className='text-base text-slate-300 font-normal'>-{section_data[index]['text_1']}</p>
-                <h3 className='text-xl text-[#FEAD20] font-semibold mt-2'>{section_data[index]['text_2']}</h3>
-                <h2 className='text-2xl text-white font-semibold'>{section_data[index]['text_3']}</h2>
-                <p className='text-base text-slate-300 font-normal'>{section_data[index]['text_4']}</p>
-                <div className='flex justify-center items-center mt-4'>
-                    <a href = {section_data[index]['link_1_href']}className='text-md font-semibold text-[#FEAD20]'>{section_data[index]['link_1']}</a>
+            <div className='mobile-s:px-6 flex flex-col basis-1/2 justify-center items-start'>
+                {(section_data[index]['text_1']) && <p className='mobile-s: py-[0.5rem] moble-s: text-[0.9rem] text-base text-slate-300 font-normal'>- {section_data[index]['text_1']}</p>}
+                {(section_data[index]['text_2']) && <h3 className='mobile-s: py-[0.01rem] moble-s: text-[0.9rem] text-xl text-[#FEAD20] font-semibold mt-2'>{section_data[index]['text_2']}</h3>}
+                {(section_data[index]['text_3']) && <h2 className='mobile-s: py-1 mobile-s: text-3xl text-2xl text-white font-semibold'>{section_data[index]['text_3']}</h2>}
+                {(section_data[index]['text_4']) && <p className='text-base text-slate-300 font-normal'>{section_data[index]['text_4']}</p>}
+                {(section_data[index]['link_1']) && <div className='flex justify-center items-center mt-4'>
+                    {(section_data[index]['link_1']) && <a href = {section_data[index]['link_1_href']}className='mobile-s:text-[0.9rem] text-md font-semibold text-[#FEAD20]'>{section_data[index]['link_1']}</a>}
                     {section_data[index]['link_1_button'] && <span className='bg-[#FEAD20] h-5 w-5 rounded-full flex justify-center items-center font-bold text-2xl text-white ml-2 rotate-90'> <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 1024 1024"><path fill="currentColor" d="M512 320L192 704h639.936z"></path></svg></span>}
                 </div>
+                }
             </div>
 
-            <div className='flex flex-col basis-1/2 justify-center items-start p-10'>
-                <h2 className='text-white text-2xl font-medium'>{section_data[index]['text_5']}</h2>
+            <div className='mobile-s: px-6 mobile-s:mobile-s: bg-gradient-to-t from-[#232533] to-[#323445] flex flex-col basis-1/2 justify-center items-start w-full'>
+                {(section_data[index]['text_5']) &&<h2 className='mobile-s: pt-6 mobile-s:text-[#FEAD20] text-white text-2xl font-medium'>{section_data[index]['text_5']}</h2>}
 
-                <div className='py-2'>
-                    <h4 className='text-white text-xl'>{section_data[index]['text_6']}</h4>
-                    <h3 className='text-[#FEAD20] text-2xl font-semibold -my-1'>{section_data[index]['text_7']}</h3>
-                </div>
+                {((section_data[index]['text_6']) ||(section_data[index]['text_7'])) && <div className='mobile-s: full-w mobile-s: pt-6'>
+                    {(section_data[index]['text_6']) && <h4 className='text-white text-xl'>{section_data[index]['text_6']}</h4>}
+                    {(section_data[index]['text_7']) && <h3 className='mobile-s: leading-[1.5rem] text-[#FEAD20] text-2xl font-semibold'>{section_data[index]['text_7']}</h3>}
+                </div>}
                 
-                <div className='py-2'>
-                    <h4 className='text-white text-xl'>{section_data[index]['text_8']}</h4>
-                    <h3 className='text-[#FEAD20] text-2xl font-semibold -mt-1 mb-2'>{section_data[index]['text_9']}</h3>
-                    <p className='text-base text-slate-300 font-normal'>{section_data[index]['text_14']}</p>
-                </div>
+                {((section_data[index]['text_8']) || (section_data[index]['text_9']) || (section_data[index]['text_8'])) && 
+                <div className='mobile-s: pt-6'>
+                    {(section_data[index]['text_8']) && <h4 className='text-white text-xl'>{section_data[index]['text_8']}</h4>}
+                    {(section_data[index]['text_9']) && <h3 className='text-[#FEAD20] text-2xl font-semibold'>{section_data[index]['text_9']}</h3>}
+                    {(section_data[index]['text_14']) && <p className='mobile-s: text-base text-slate-300 font-normal'>{section_data[index]['text_14']}</p>}
+                </div>}
 
-                <div className='flex justify-start items-center'>
+                <div className='mobile-s: pt-6 mobile-s: w-full flex mobile-s:flex-col justify-start items-start'>
                     
-                    <div className='flex items-center justify-start py-5'>
-                        <h2 className='text-[#FEAD20] text-6xl font-bold mr-2'>{section_data[index]['value_1']}</h2>
+                    <div className='mobile-s:py-1 flex items-center justify-start py-5'>
+                        {(section_data[index]['value_1']) && <h2 className='mobile-s:text-[2.5rem] text-[#FEAD20] text-6xl font-bold mr-2'>{section_data[index]['value_1']}</h2>}
                         <div className='flex flex-col justify-center items-start'>
-                            <label className='text-white text-xl font-medium'>{section_data[index]['text_10']}</label>
-                            <label className='text-white text-xl font-medium -mt-2'>{section_data[index]['text_11']}</label>
+                            {(section_data[index]['text_10']) && <label className='mobile-s:text-[1rem] text-white text-xl font-medium'>{section_data[index]['text_10']}</label>}
+                            {(section_data[index]['text_11']) && <label className='mobile-s:text-[1rem] text-white text-xl font-medium -mt-2'>{section_data[index]['text_11']}</label>}
                         </div>
                     </div>
 
-                    <div className='flex items-center justify-start ml-4'>
-                        <h2 className='text-[#FEAD20] text-6xl font-bold mr-2'>{section_data[index]['value_2']}</h2>
+                    <div className='mobile-s:py-1 flex items-center justify-start'>
+                        <h2 className='mobile-s:text-[2.5rem] text-[#FEAD20] text-6xl font-bold mr-2'>{section_data[index]['value_2']}</h2>
                         <div className='flex flex-col justify-center items-start'>
-                            <label className='text-white text-xl font-medium'>{section_data[index]['text_12']}</label>
-                            <label className='text-white text-xl font-medium -mt-2'>{section_data[index]['text_13']}</label>
+                            {(section_data[index]['text_12']) && <label className='mobile-s:text-[1rem] text-white text-xl font-medium'>{section_data[index]['text_12']}</label>}
+                            {(section_data[index]['text_13']) && <label className='mobile-s:text-[1rem] text-white text-xl font-medium -mt-2'>{section_data[index]['text_13']}</label>}
                         </div>
                     </div>
                 </div>
@@ -54,12 +56,13 @@ export default function InfoSectionContentRight({bg_color, index, code, section_
                 </div>
 
             </div>
+            <div className={`mobile-s:bg-[#232533] mobile-s: px-6 mobile-s: py-10 w-full flex justify-center items-center bg-[${bg_color}]`}>
+                    {(section_data[index]['more']) && <a className='mobile-s:text-[0.8rem] text-md font-semibold text-[#FEAD20]'>{section_data[index]['more']}</a>}
+                    {section_data[index]['more_button'] && <span className='bg-[#FEAD20] h-5 w-5 rounded-full flex justify-center items-center font-bold text-2xl text-white ml-2 rotate-180'> <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 1024 1024"><path fill="currentColor" d="M512 320L192 704h639.936z"></path></svg></span>}
+            </div>
         </div>
         
-        <div className={`flex justify-center items-center bg-[${bg_color}]`}>
-                    <a className='text-md font-semibold text-[#FEAD20] p-4'>{section_data[index]['more']}</a>
-                    {section_data[index]['more_button'] && <span className='bg-[#FEAD20] h-5 w-5 rounded-full flex justify-center items-center font-bold text-2xl text-white ml-2 rotate-180'> <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 1024 1024"><path fill="currentColor" d="M512 320L192 704h639.936z"></path></svg></span>}
-                </div>
+            
             
             
             <div className='hidden'>

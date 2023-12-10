@@ -121,7 +121,7 @@ const EducationQualifications = {
     text_14: 'I studied Computer Science in faculty of Computing & Technology of University of Kelaniya.',
     
     value_1: '2021',
-    value_2: '4.0',
+    value_2: '3.90',
     
     link_1: null,
     link_2: null,

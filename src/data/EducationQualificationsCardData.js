@@ -2,17 +2,17 @@ import icon from './../images/test_icon.png'
 
 const EducationQualificationsCardData = [
     {id: 0, 
-    title:'AL', 
+    title:'Ordinary Level', 
     icon:icon, 
     }, 
     
     {id: 1, 
-    title:'OL',
+    title:'Advanced Level',
     icon:icon,
     },
     
     {id: 2,
-    title:'School',
+    title:'University',
     icon:icon,
 }]
 
