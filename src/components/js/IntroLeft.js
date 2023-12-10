@@ -11,7 +11,7 @@ export default function IntroLeft(){
     const [word_num, wordNum] = useState(0);
 
     const [reverse, setReverse] = useState(false);
-    let display_names = ['# Software Enginner.', '# Data Scientist.', '# Programmer.', '# Ethical Hacker.'];
+    let display_names = ['Software Developer.', 'Web Developer.', 'Data Scientist.', 'Programmer.', 'Ethical Hacker.', 'Tech Enthusiast.'];
 
     function call(){
         setTimeout(function () { 
@@ -19,7 +19,7 @@ export default function IntroLeft(){
             setName1(display_names[word_num].slice(0,char_num).split(" ")[0]);
             setName2(display_names[word_num].slice(0,char_num).split(" ")[1]);
             
-        }, ((char_num == display_names[word_num].length-1) && reverse) ? 500 : 100);
+        }, ((char_num == display_names[word_num].length-1) && reverse) ? 500 : 30);
     }
 
     useEffect(()=>{
@@ -55,10 +55,14 @@ export default function IntroLeft(){
                     <span className="text-[#FEC158] text-6xl font-extrabold drop-shadow-2xl">{name1}</span>
                     <span className="text-[#FFFFFF] text-6xl font-extrabold drop-shadow-2xl">{name2}</span>
                 </div> */}
-
-                <div className="absolute z-20">
-                    <p className="text-white bg-black px-2 font-bold translate-y-20">{name}</p>
+                
+                <div className="absolute z-20 flex justify-center items-center">
+                    <p className="-mb-[10rem] py-[0.1rem] font-bold bg-black text-white px-2 z-40 text-center rounded-l">{'<Role>'}</p>
+                    <p className="text-[#FEAD20] py-[0.1rem] bg-black font-bold translate-y-20">{name}</p>
+                    <p className="-mb-[10rem] py-[0.1rem] font-bold bg-black text-white z-40 px-2 text-center rounded-r">{'</Role>'}</p>
                 </div>
+
+    
 
                 <div className=" absolute bg-[#FEC158] mobile-s:h-64 mobile-s:w-64 mobile-m:w-72 mobile-m:h-72 mobile-l:h-80 mobile-l:w-80 laptop-m:h-96 laptop-m:w-96 translate-y-4 rounded-full">
                 </div>

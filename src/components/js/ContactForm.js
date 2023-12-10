@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ContactTitle from './Title.js'
 import FormItem from "./FormItem.js";
 export default function ContactForm({bg_color}){
+    useEffect(()=>{
+        const c = document.querySelector('#contact-form');
+        console.log(c.offsetWidth);
+        console.log(window.width);
+    },[])
+
     return(
-        <div className="-mt-10">
+        <div id="contact-form" className="-mt-10">
             <ContactTitle title = "Contact Me" bg_color={bg_color} />
-            <div className={`mobile-s:-mt-[2rem] flex flex-col justify-center items-center p-20 pt-3 bg-[#232533] w-full`}>
+            <div className={`mobile-s:-mt-[2rem] mobile-s:px-8 tablet:px-[8rem] pb-10 flex flex-col justify-center items-stretch pt-3 bg-[#232533] w-full`}>
                 <div className="pt-0 rounded-lg flex-col items-center justify-center">
                     <FormItem field='Name' type = 'text'/>
                     <FormItem field='Email' type = 'text'/>

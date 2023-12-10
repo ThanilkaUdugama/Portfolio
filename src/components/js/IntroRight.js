@@ -2,7 +2,7 @@ import React from "react";
 
 export default function IntroRight(){
     return(
-        <div className='mobile-s: px-6 bg-[#232533] tablet:bg-[#323445] w-full tablet:w-2/5 z-10 flex flex-col justify-center items-center font-medium text-white'>
+        <div className='mobile-s: px-6 bg-[#232533] tablet:bg-gradient-to-t from-[#232533] to-[#323445] w-full tablet:w-2/5 z-10 flex flex-col justify-center items-center font-medium text-white'>
             <div className="flex flex-col justify-center items-center mt-1">
                 <h2 className="mobile-s:text-[2.5rem] mobile-s:py-2 font-bold text-[3rem]">Thanilka</h2>
                 <h2 className="mobile-s:text-[2.5rem] font-bold text-[3rem] text-[#FEC158] -mt-7">Udugama</h2>
