@@ -16,7 +16,7 @@ const EducationQualifications = {
     text_13: 'Obtained',
     text_14: 'Studied Ordinary Level in Sri Chandhananda Buddhist College and Faced the exam with 9 subjects including Mathematics, Science and Information & Communication Technology.',
     
-    value_1: 2018,
+    value_1: '2018',
     value_2: '9A',
     
     link_1: 'View Ordinary Level Certificate',

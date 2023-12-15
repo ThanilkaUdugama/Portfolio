@@ -124,7 +124,7 @@ link_1_button : null,
 link_2_button : null,
 more_button : true,
 
-more: "View Done Projects Using Scikit-learn",
+more: null,
 
 table: {
 
@@ -168,13 +168,13 @@ link_2_href: null,
 
 link_1_button : null,
 link_2_button : null,
-more_button : true,
+more_button : null,
 
-more: "View Done Projects Using Tensorflow",
+more: null,
 
 table: {
 
-cols : 2,
+cols : null,
 header: ["Project", "Reference"],
 data : [
 

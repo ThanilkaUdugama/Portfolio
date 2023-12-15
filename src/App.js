@@ -20,21 +20,58 @@ import WebAutomationSkillsCardData from './data/WebAutomationCardData.js';
 import Quote from './components/js/Quote.js';
 import Quotes from './data/Quotes.js';
 import SocialMedia from './components/js/SocialMedia.js';
+import Test from './components/js/Test.js';
 
 function App() {
   const [menu_clicked , SetMenuClicked] = useState(false);
   const [tabs_activity, setActivity] = useState({intro: true, qualifications: false, skills: false, contact: false})
-
+  const [triggers, setTriggers] = useState(false);
 
   const intro_ref = useRef(null);
   const qualifications_ref = useRef(null);
   const skills_ref = useRef(null);
   const contact_ref = useRef(null);
+  const education_qualification_ref = useRef(null);
+  const web_development_ref = useRef(null);
+  const data_processing_ref = useRef(null);
+  const web_automation_ref = useRef(null);
+
+ 
+  
+
 
   const intro_ref_visible = useIsInViewport(intro_ref);
   const qualifications_ref_visible = useIsInViewport(qualifications_ref);
   const skills_ref_visible = useIsInViewport(skills_ref);
   const contact_ref_visible = useIsInViewport(contact_ref);
+  const education_qualification_ref_visible = useIsInViewport(education_qualification_ref);
+  const web_development_ref_visible = useIsInViewport(web_development_ref);
+  const data_processing_ref_visible = useIsInViewport(data_processing_ref);
+  const web_automation_ref_visible = useIsInViewport(web_automation_ref);
+
+
+  useEffect(()=>{
+      if(intro_ref_visible){
+        setTriggers('INTRO')
+      }
+      if(education_qualification_ref_visible){
+        setTriggers('EQ');
+      }
+      if(web_development_ref_visible){
+        setTriggers('WD');
+      }
+      if(data_processing_ref_visible){
+        setTriggers('DP');
+      }
+      if(web_automation_ref_visible){
+        setTriggers('WA');
+      }
+      if(contact_ref_visible){
+        setTriggers('CT');
+      }
+  
+  }, [intro_ref_visible ,education_qualification_ref_visible, web_development_ref_visible, data_processing_ref_visible, web_automation_ref_visible, contact_ref_visible, intro_ref_visible])
+
 
   useEffect(()=>{
     const menu_button = document.querySelector('.menu-button');
@@ -74,32 +111,49 @@ function App() {
     
     
   },[qualifications_ref_visible, contact_ref_visible, intro_ref_visible, skills_ref_visible])
-  
+ 
+
   return (
     <div className="App">
         <Sidebar menu_func = {SetMenuClicked} menu_clicked = {menu_clicked} activity = {tabs_activity} references = {[intro_ref, qualifications_ref, skills_ref, contact_ref]}/>
         <Header set_menu_clicked = {SetMenuClicked} menu_clicked = {menu_clicked} activity = {tabs_activity} references = {[intro_ref, qualifications_ref, skills_ref, contact_ref]}/>
+        
         <div className='body transition'>
-          <div ref = {intro_ref} id = "#introduction">
+          <div ref = {intro_ref} id = "introduction">
           </div>
-          <Intro />
-          <div id = "#qualifications" ref={qualifications_ref}>
-          <InfoSection code = "EQ" title = "Education Qualifications" title_bg_color={'#232533'} tbg_color={'#232533'} bbg_color={'#32344'} cards_data={EducationQualificationsCardData} section_data={EducationQualifications}/>
+          
+          <Intro code = "ED" triggers = {triggers}/>
+          
+          <div id = "qualifications" ref={qualifications_ref}>
+            <div ref={education_qualification_ref}>
+            <InfoSection code = "ED" title = "Education Qualifications" title_bg_color={'#232533'} tbg_color={'#232533'} bbg_color={'#32344'} cards_data={EducationQualificationsCardData} section_data={EducationQualifications} active={'EQ' == triggers}/>
+          </div>
+
           <Quote quotes = {Quotes[0]['quotes']} images = {Quotes[0]['images']} />
+          
           <div ref = {skills_ref}>
-          <InfoSection code = "EQ" title = "Web Development Skills" title_bg_color={'#232533'} tbg_color={'#232533'} bbg_color={'#32344'} cards_data={WebDevelopmentSkillsCardData} section_data={WebDevelopmentSkills}/>
-          <Quote quotes = {Quotes[1]['quotes']} images = {Quotes[1]['images']} />
-          <InfoSection code = "EQ" title = "Data Processing Skills" title_bg_color={'#232533'} tbg_color={'#232533'} bbg_color={'#32344'} cards_data={DataProcessingSkillsCardData} section_data={DataProcessingSkillsData}/>
+          <div ref={web_development_ref} >
+          <InfoSection code = "WD" title = "Web Development Skills" title_bg_color={'#232533'} tbg_color={'#232533'} bbg_color={'#32344'} cards_data={WebDevelopmentSkillsCardData} section_data={WebDevelopmentSkills} active={'WD' == triggers}/>
+          </div>
+          
+          <Quote quotes = {Quotes[1]['quotes']} images = {Quotes[1]['images']}/>
+          
+          <div ref={data_processing_ref} >
+          <InfoSection code = "DP" title = "Data Processing Skills" title_bg_color={'#232533'} tbg_color={'#232533'} bbg_color={'#32344'} cards_data={DataProcessingSkillsCardData} section_data={DataProcessingSkillsData} active={'DP' == triggers} ref={data_processing_ref}/>
+          </div>
+          
           <Quote quotes = {Quotes[2]['quotes']} images = {Quotes[2]['images']} />
-          <InfoSection code = "EQ" title = "Web Automation Skills" title_bg_color={'#232533'} tbg_color={'#232533'} bbg_color={'#32344'} cards_data={WebAutomationSkillsCardData} section_data={WebAutomationSkillsData}/>
+          
+          <div ref={web_automation_ref} >
+          <InfoSection code = "WA" title = "Web Automation Skills" title_bg_color={'#232533'} tbg_color={'#232533'} bbg_color={'#32344'} cards_data={WebAutomationSkillsCardData} section_data={WebAutomationSkillsData} active={'WA' == triggers}/>
+          </div>
+          
           <Quote quotes = {Quotes[3]['quotes']} images = {Quotes[3]['images']} />
+          
           </div>
-          {/* <InfoSection code = "WD" title = "Web Development Skills" title_bg_color={'#232533'} tbg_color={'#232533'} bbg_color={'#323445'} cards_data={[{id: 0, title:'AL', icon:icon, active_icon:icon, description: 'dasdsadsadsadsa', type: 1}, {id: 1, title:'OL', icon:icon, active_icon:icon, description: 'dasdsadsadsadsa' }]}/>
-          <InfoSection code = "DP" title = "Data Processing Skills" title_bg_color={'#232533'} tbg_color={'#232533'} bbg_color={'#323445'} cards_data={[{id: 0, title:'AL', icon:icon, active_icon:icon, description: 'dasdsadsadsadsa', type: 1}, {id: 1, title:'OL', icon:icon, active_icon:icon, description: 'dasdsadsadsadsa' }]}/>
-          <InfoSection code = "WA" title = "Web Automation Skills" title_bg_color={'#232533'} tbg_color={'#232533'} bbg_color={'#323445'} cards_data={[{id: 0, title:'AL', icon:icon, active_icon:icon, description: 'dasdsadsadsadsa', type: 1}, {id: 1, title:'OL', icon:icon, active_icon:icon, description: 'dasdsadsadsadsa' }]}/> */}
           </div>
-          <div id = "#contact" ref = {contact_ref}>
-            <ContactForm bg_color = "#232533"/>
+          <div id = "contact" ref = {contact_ref}>
+            <ContactForm bg_color = "#232533" active = {triggers == 'CT'}/>
             <SocialMedia />
           </div>
           <Copyrights />  

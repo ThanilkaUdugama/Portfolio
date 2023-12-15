@@ -33,6 +33,19 @@
     @apply bg-[#323445];
   }
 
+  .squeezed-card-container{
+    @apply mobile-s:h-[16rem] mobile-s:pt-[1rem] mobile-s:overflow-auto mobile-s:whitespace-nowrap card-section bg-gradient-to-t from-[#323445] to-[#232533] pb-0;
+  }
+
+  .full-card-container{
+    @apply flex justify-center mobile-s:h-[16rem] mobile-s:pt-[1rem] bg-gradient-to-t from-[#323445] to-[#232533] pb-0;
+  }
+
+  .fade{
+    animation: fadein;
+    animation-duration: 1s;
+  }
+
 }
 
 input[type="text"]{
@@ -46,16 +59,13 @@ textarea{
 body {
 
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, monospace;
 }
 
 .card-section {
@@ -66,4 +76,16 @@ code {
 
 .card-section::-webkit-scrollbar {
   display: none; /* for Chrome, Safari, and Opera */
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    margin-left: -100px;
+  }
+ 
+  to {
+    opacity: 1;
+    margin-left: 0;
+  }
 }
