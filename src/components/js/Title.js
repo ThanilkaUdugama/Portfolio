@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import WriteILetterShuffle from "../../animations/writeInLetterShuffle";
 import useIsInViewport from "../../functions/useIsInViewport";
 import WriteInWordShuffle from "../../animations/writeInWordShuffle";
 export default function Title({title, bg_color}){

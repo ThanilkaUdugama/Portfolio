@@ -1,19 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import WriteInNumShuffle from '../../animations/writeInNumShuffle';
-import WriteILetterShuffle from '../../animations/writeInLetterShuffle';
-import { NUMBERS} from '../../data/Characters';
-import { CHARACTORS } from '../../data/Characters';
-import useIsInViewport from '../../functions/useIsInViewport';
 import WriteInWordShuffle from '../../animations/writeInWordShuffle';
+import { motion } from "framer-motion";
+
 export default function InfoSectionContentRight({bg_color, index, section_data}){
-    const [active, setActive] = useState(false)
-
-    const ref = useRef(null);
-    const ref_visible = useIsInViewport(ref);
-
-    useEffect(()=>{
-        (ref_visible) ? setActive(true) : setActive(false);
-    },[ref_visible])
 
     const [Prev_text1, setPrev_text1] = useState('');
     const [Last_text1, setLast_text1] = useState('');
@@ -79,16 +68,34 @@ export default function InfoSectionContentRight({bg_color, index, section_data})
     const [Last_value2, setLast_value2] = useState('');
     const [textIndex_value2, setTextIndex_value2] = useState(0);
 
-    useEffect(()=>{
-        if(section_data[index]['text_1'] != null) WriteILetterShuffle(setPrev_text1, setLast_text1, section_data[index]['text_1'], textIndex_text1, setTextIndex_text1, 10, 5, CHARACTORS)
-    },[textIndex_text1, active, section_data[index]['text_1']])
+
+    const styles = {
+        offscreen: {
+          opacity: 0,
+          y: 20
+        },
+        onscreen: {
+          opacity: 1,
+          y: 0,
+          transition: {
+            type: "spring",
+            bounce: 0.4,
+            duration: 0.8
+            
+          }
+        }
+      }
 
     useEffect(()=>{
-        if(section_data[index]['text_2'] != null) WriteILetterShuffle(setPrev_text2, setLast_text2, section_data[index]['text_2'], textIndex_text2, setTextIndex_text2, 10, 5, CHARACTORS)
+        if(section_data[index]['text_1'] != null) WriteInWordShuffle(setPrev_text1, setLast_text1, section_data[index]['text_1'], textIndex_text1, setTextIndex_text1, 10, 5)
+    },[textIndex_text1, section_data[index]['text_1']])
+
+    useEffect(()=>{
+        if(section_data[index]['text_2'] != null) WriteInWordShuffle(setPrev_text2, setLast_text2, section_data[index]['text_2'], textIndex_text2, setTextIndex_text2, 10, 5)
     },[textIndex_text2, section_data[index]['text_2']])
 
     useEffect(()=>{
-        if(section_data[index]['text_3'] != null) WriteILetterShuffle(setPrev_text3, setLast_text3, section_data[index]['text_3'], textIndex_text3, setTextIndex_text3, 10, 5, CHARACTORS)
+        if(section_data[index]['text_3'] != null) WriteInWordShuffle(setPrev_text3, setLast_text3, section_data[index]['text_3'], textIndex_text3, setTextIndex_text3, 10, 5)
     },[textIndex_text3, section_data[index]['text_3']])
 
     useEffect(()=>{
@@ -105,7 +112,7 @@ export default function InfoSectionContentRight({bg_color, index, section_data})
 
     useEffect(()=>{
         if(section_data[index]['text_7'] != null){
-            WriteILetterShuffle(setPrev_text7, setLast_text7, section_data[index]['text_7'], textIndex_text7, setTextIndex_text7, 4, 3, CHARACTORS)}
+            WriteInWordShuffle(setPrev_text7, setLast_text7, section_data[index]['text_7'], textIndex_text7, setTextIndex_text7, 4, 3)}
     },[textIndex_text7, section_data[index]['text_7']])
 
     useEffect(()=>{
@@ -113,38 +120,38 @@ export default function InfoSectionContentRight({bg_color, index, section_data})
     },[textIndex_text8, section_data[index]['text_8']])
 
     useEffect(()=>{
-        if(section_data[index]['text_9'] != null) WriteILetterShuffle(setPrev_text9, setLast_text9, section_data[index]['text_9'], textIndex_text9, setTextIndex_text9, 10, 5, CHARACTORS)
+        if(section_data[index]['text_9'] != null) WriteInWordShuffle(setPrev_text9, setLast_text9, section_data[index]['text_9'], textIndex_text9, setTextIndex_text9, 10, 5)
     },[textIndex_text9, section_data[index]['text_9']])
 
     useEffect(()=>{
-        if(section_data[index]['text_10'] != null) WriteILetterShuffle(setPrev_text10, setLast_text10, section_data[index]['text_10'], textIndex_text10, setTextIndex_text10, 10, 4, CHARACTORS)
+        if(section_data[index]['text_10'] != null) WriteInWordShuffle(setPrev_text10, setLast_text10, section_data[index]['text_10'], textIndex_text10, setTextIndex_text10, 10, 4)
     },[textIndex_text10, section_data[index]['text_10']])
 
     useEffect(()=>{
-        if(section_data[index]['text_11'] != null) WriteILetterShuffle(setPrev_text11, setLast_text11, section_data[index]['text_11'], textIndex_text11, setTextIndex_text11, 10, 5, CHARACTORS)
+        if(section_data[index]['text_11'] != null) WriteInWordShuffle(setPrev_text11, setLast_text11, section_data[index]['text_11'], textIndex_text11, setTextIndex_text11, 10, 5)
     },[textIndex_text11, section_data[index]['text_11']])
 
     useEffect(()=>{
-        if(section_data[index]['text_12'] != null) WriteILetterShuffle(setPrev_text12, setLast_text12, section_data[index]['text_12'], textIndex_text12, setTextIndex_text12, 10, 5, CHARACTORS)
+        if(section_data[index]['text_12'] != null) WriteInWordShuffle(setPrev_text12, setLast_text12, section_data[index]['text_12'], textIndex_text12, setTextIndex_text12, 10, 5)
     },[textIndex_text12, section_data[index]['text_12']])
 
     useEffect(()=>{
-        if(section_data[index]['text_13'] != null) WriteILetterShuffle(setPrev_text13, setLast_text13, section_data[index]['text_13'], textIndex_text13, setTextIndex_text13, 10, 5, CHARACTORS)
+        if(section_data[index]['text_13'] != null) WriteInWordShuffle(setPrev_text13, setLast_text13, section_data[index]['text_13'], textIndex_text13, setTextIndex_text13, 10, 5)
     },[textIndex_text13, section_data[index]['text_13']])
 
     useEffect(()=>{
-        if(section_data[index]['text_14'] != null) WriteILetterShuffle(setPrev_text14, setLast_text14, section_data[index]['text_14'], textIndex_text14, setTextIndex_text14, 3, 0.1, CHARACTORS)
+        if(section_data[index]['text_14'] != null) WriteInWordShuffle(setPrev_text14, setLast_text14, section_data[index]['text_14'], textIndex_text14, setTextIndex_text14, 3, 0.1)
     },[textIndex_text14, section_data[index]['text_14']])
 
     
 
     useEffect(()=>{
-        if(section_data[index]['value_1'] != null) WriteILetterShuffle(setPrev_value1, setLast_value1, section_data[index]['value_1'], textIndex_value1, setTextIndex_value1, 10, 30, NUMBERS)
-    },[textIndex_value1])
+        if(section_data[index]['value_1'] != null) WriteInWordShuffle(setPrev_value1, setLast_value1, section_data[index]['value_1'], textIndex_value1, setTextIndex_value1, 10, 40)
+    },[textIndex_value1, section_data[index]['value_1']])
 
     useEffect(()=>{
-        if(section_data[index]['value_2'] != null) WriteILetterShuffle(setPrev_value2, setLast_value2, section_data[index]['value_2'], textIndex_value2, setTextIndex_value2, 10, 30, NUMBERS)
-    },[textIndex_value2])
+        if(section_data[index]['value_2'] != null) WriteInWordShuffle(setPrev_value2, setLast_value2, section_data[index]['value_2'], textIndex_value2, setTextIndex_value2, 10, 40)
+    },[textIndex_value2, section_data[index]['value_2']])
     
 
 
@@ -167,13 +174,22 @@ export default function InfoSectionContentRight({bg_color, index, section_data})
 
         setTextIndex_value1(0);
         setTextIndex_value2(0);
-    },[index, active])
+    },[index])
 
     return(
-        <div className='tablet:h-[35rem]' ref={ref}>
-        <div className= {`mobile-s: pt-10 mobile-s:min-h-[50rem] mobile-s:flex-col mobile-s:justify-start mobile-s:p-0 mobile-s:bg-[#323445] tablet:flex-row tablet:bg-gradient-to-t from-[#232533] to-[#323445] table: h-[20rem] p-20 flex`}>
+
+        <div>
+        <div 
+
+        
+        className= {`mobile-s: pt-10 mobile-s:flex-col mobile-s:justify-start mobile-s:p-0 mobile-s:bg-[#323445] tablet:flex-row tablet:bg-gradient-to-t from-[#232533] to-[#323445] p-20 flex`}>
             
-            <div className={`${(active)? 'opacity-100' : 'opacity-0'} mobile-s:justify-start mobile-s:px-6 tablet:pl-12 flex flex-col tablet:basis-1/2 justify-center items-start`}>
+            <motion.div
+            initial= {styles['offscreen']}    
+            whileInView = {styles['onscreen']}
+            
+            
+            className={`duration-100 mobile-s:justify-start mobile-s:px-6 tablet:pl-12 flex flex-col tablet:basis-1/2 justify-center items-start`}>
                 {(section_data[index]['text_1']) && <p className='mobile-s: py-[0.5rem] moble-s: text-[0.9rem] text-base text-slate-300 font-normal'><span>-{Prev_text1}</span><span className='opacity-50'>{Last_text1}</span></p>}
                 {(section_data[index]['text_2']) && <h3 className='mobile-s: py-[0.01rem] moble-s: text-[0.9rem] text-xl text-[#FEAD20] font-semibold mt-2'><span>{Prev_text2}</span><span className='opacity-50'>{Last_text2}</span></h3>}
                 {(section_data[index]['text_3']) && <h2 className='mobile-s: py-1 mobile-s: text-3xl text-2xl text-white font-semibold'><span>{Prev_text3}</span><span className='opacity-50'>{Last_text3}</span></h2>}
@@ -183,9 +199,12 @@ export default function InfoSectionContentRight({bg_color, index, section_data})
                     {section_data[index]['link_1_button'] && <span className='bg-[#FEAD20] h-5 w-5 rounded-full flex justify-center items-center font-bold text-2xl text-white ml-2 rotate-90'> <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 1024 1024"><path fill="currentColor" d="M512 320L192 704h639.936z"></path></svg></span>}
                 </div>
                 }
-            </div>
+            </motion.div>
 
-            <div className={`${(active)? 'opacity-100' : 'opacity-0'} mobile-s:justify-start mobile-s: px-6 tablet:pr-[1rem] flex flex-col tablet:basis-1/2 justify-center items-start w-full`}>
+            <motion.div 
+            initial= {styles['offscreen']}    
+            whileInView = {styles['onscreen']}
+            className={`duration-100 mobile-s:justify-start mobile-s: px-6 tablet:pr-[1rem] flex flex-col tablet:basis-1/2 justify-center items-start w-full`}>
                 {(section_data[index]['text_5']) &&<h2 className='mobile-s: pt-6 mobile-s:text-[#FEAD20] text-white text-2xl font-medium'><span>{Prev_text5}</span><span className='opacity-50'>{Last_text5}</span></h2>}
 
                 {((section_data[index]['text_6']) ||(section_data[index]['text_7'])) && <div className='mobile-s: full-w mobile-s: pt-6'>
@@ -228,7 +247,7 @@ export default function InfoSectionContentRight({bg_color, index, section_data})
                     {(section_data[index]['more']) && <a className='mobile-s:text-[0.8rem] text-md font-semibold text-[#FEAD20]'>{section_data[index]['more']}</a>}
                     {section_data[index]['more_button'] && <span className='bg-[#FEAD20] h-5 w-5 rounded-full flex justify-center items-center font-bold text-2xl text-white ml-2 rotate-180'> <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 1024 1024"><path fill="currentColor" d="M512 320L192 704h639.936z"></path></svg></span>}
             </div>
-            </div>
+            </motion.div>
         </div>
         
             

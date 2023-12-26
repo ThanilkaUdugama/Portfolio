@@ -1,0 +1,3 @@
+export const Description = "Hello there! I'm Thanika Vishvajith Udugama, a guy with passion to the facinating IT industry. I'm a B.Sc in Computer Science student at Univeristy of Kelaniya. I'm mostly intersted in Machine learning, Ethical Hacking and Software Development and I'm extreamly comfortable with spending my time with learning upcomming technologies, frameworks and concepts to perform best in every project do.";
+export const Name = {'first_name' : "Thanilka", 'last_name': "Udugama" };
+export const Roles = ['Software Developer.', 'Web Developer.', 'Data Scientist.', 'Programmer.', 'Ethical Hacker.', 'Tech Enthusiast.']

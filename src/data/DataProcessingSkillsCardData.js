@@ -1,8 +1,6 @@
 import icon from './../images/test_icon.png'
 
 const DataProcessingSkillsCardData = [
-
-
     {id: 0, 
     title:'Numpy', 
     icon:icon, 

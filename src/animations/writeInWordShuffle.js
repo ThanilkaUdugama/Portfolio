@@ -2,7 +2,6 @@ import getRandomText from "../functions/getRandomText";
 const delay = ms => new Promise(res => setTimeout(res, ms));
 export default function WriteInWordShuffle(setPrevText, setLastText, DisplayText, TextIndex, setTextIndex, ShuffleWordCount, Delay, error=1){
     const TextArray = DisplayText.split(" ")
-    console.log(TextArray)
     if(TextIndex < TextArray.length){
         setTimeout( async ()=>{
             setPrevText(TextArray.slice(0, TextIndex).join(" "))

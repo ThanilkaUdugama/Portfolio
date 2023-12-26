@@ -1,9 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
-import InfoSection from './components/js/InfoSection.js';
+//import InfoSection from './components/js/InfoSection.js';
 import ContactForm from './components/js/ContactForm.js';
 import Header from './components/js/Header.js';
-import Intro from './components/js/Intro.js';
+//import Intro from './components/js/Intro.js';
 import Copyrights from './components/js/Copyrights.js';
 import Sidebar from './components/js/Sidebar.js';
 import { useEffect, useMemo, useRef, useState } from 'react';
@@ -21,6 +21,11 @@ import Quote from './components/js/Quote.js';
 import Quotes from './data/Quotes.js';
 import SocialMedia from './components/js/SocialMedia.js';
 import Test from './components/js/Test.js';
+import FullQuote from './components/js/FullQuote.js';
+import { lazy } from 'react';
+
+const InfoSection = lazy(() => import('./components/js/InfoSection.js'));
+const Intro = lazy(() => import('./components/js/Intro.js'));
 
 function App() {
   const [menu_clicked , SetMenuClicked] = useState(false);
@@ -129,26 +134,26 @@ function App() {
             <InfoSection code = "ED" title = "Education Qualifications" title_bg_color={'#232533'} tbg_color={'#232533'} bbg_color={'#32344'} cards_data={EducationQualificationsCardData} section_data={EducationQualifications} active={'EQ' == triggers}/>
           </div>
 
-          <Quote quotes = {Quotes[0]['quotes']} images = {Quotes[0]['images']} />
+          <Quote quotes = {Quotes[0]['quotes']} images = {Quotes[0]['images']} authors={Quotes[0]['authors']} />
           
           <div ref = {skills_ref}>
           <div ref={web_development_ref} >
           <InfoSection code = "WD" title = "Web Development Skills" title_bg_color={'#232533'} tbg_color={'#232533'} bbg_color={'#32344'} cards_data={WebDevelopmentSkillsCardData} section_data={WebDevelopmentSkills} active={'WD' == triggers}/>
           </div>
           
-          <Quote quotes = {Quotes[1]['quotes']} images = {Quotes[1]['images']}/>
+          <FullQuote quotes = {Quotes[1]['quotes']} images = {Quotes[1]['images']} authors={Quotes[1]['authors']}/>
           
           <div ref={data_processing_ref} >
           <InfoSection code = "DP" title = "Data Processing Skills" title_bg_color={'#232533'} tbg_color={'#232533'} bbg_color={'#32344'} cards_data={DataProcessingSkillsCardData} section_data={DataProcessingSkillsData} active={'DP' == triggers} ref={data_processing_ref}/>
           </div>
           
-          <Quote quotes = {Quotes[2]['quotes']} images = {Quotes[2]['images']} />
+          <Quote quotes = {Quotes[2]['quotes']} images = {Quotes[2]['images']} authors={Quotes[2]['authors']} />
           
           <div ref={web_automation_ref} >
           <InfoSection code = "WA" title = "Web Automation Skills" title_bg_color={'#232533'} tbg_color={'#232533'} bbg_color={'#32344'} cards_data={WebAutomationSkillsCardData} section_data={WebAutomationSkillsData} active={'WA' == triggers}/>
           </div>
           
-          <Quote quotes = {Quotes[3]['quotes']} images = {Quotes[3]['images']} />
+          <FullQuote quotes = {Quotes[3]['quotes']} images = {Quotes[3]['images']} authors={Quotes[3]['authors']} />
           
           </div>
           </div>
