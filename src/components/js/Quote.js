@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import WriteInWordShuffle from "../../animations/writeInWordShuffle";
 import WriteILetterShuffle from "../../animations/writeInLetterShuffle";
 import { motion } from "framer-motion";
-
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
 export default function Quote({quotes, images, authors}){

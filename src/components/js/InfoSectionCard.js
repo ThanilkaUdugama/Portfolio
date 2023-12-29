@@ -20,7 +20,7 @@ export default function InfoSectionCard({ id, title, icon, active_icon, descript
                     whileHover={{ scale: 1 }}
                     whileTap={{ scale: 0.9 }}
 
-                    className={`select-card bg-[${(index == id) ? '#FEAD20' : '#323445'}] mobile-s:w-[12rem] mobile-s:h-[12rem] inline-block mx-3 rounded-sm transition ${(index == id) ? 'shadow-none' : 'shadow-2xl'} duration-500 duration-500 cursor-pointer duration-0`} onClick={()=> setIndex(id)}
+                    className={`select-card bg-[${(index == id) ? '#FEAD20' : '#323445'}] mobile-s:w-[12rem] mobile-s:h-[12rem] inline-block mx-3 rounded-sm transition ${(index == id) ? 'shadow-none' : 'shadow-2xl'} cursor-pointer duration-0`} onClick={()=> setIndex(id)}
                     >
     
                     <div className='flex flex-col mobile-s:w-[12rem] mobile-s:h-[12rem] mobile-m  justify-center items-center'>
