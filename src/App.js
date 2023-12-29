@@ -123,7 +123,7 @@ function App() {
         <Sidebar menu_func = {SetMenuClicked} menu_clicked = {menu_clicked} activity = {tabs_activity} references = {[intro_ref, qualifications_ref, skills_ref, contact_ref]}/>
         <Header set_menu_clicked = {SetMenuClicked} menu_clicked = {menu_clicked} activity = {tabs_activity} references = {[intro_ref, qualifications_ref, skills_ref, contact_ref]}/>
         
-        <div className='body transition'>
+        <div className='body transition mobile-l:pt-6'>
           <div ref = {intro_ref} id = "introduction">
           </div>
           

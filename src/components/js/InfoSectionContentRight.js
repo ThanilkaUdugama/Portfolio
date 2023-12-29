@@ -219,7 +219,7 @@ export default function InfoSectionContentRight({bg_color, index, section_data})
                     {(section_data[index]['text_14']) && <p className='mobile-s: text-base text-slate-300 font-normal'><span>{Prev_text14}</span><span className='opacity-50'>{Last_text14}</span></p>}
                 </div>}
 
-                <div className='mobile-s: pt-6 mobile-s: w-full flex mobile-s:flex-col tablet:flex-row tablet:justify-center justify-start items-start'>
+                <div className='mobile-s: pt-6 mobile-s: w-full flex mobile-s:flex-col tablet:flex-row justify-start items-start'>
                     
                     <div className='mobile-s:py-1 mobile-s:justify-start tablet:px-3 flex items-center py-5'>
                         {(section_data[index]['value_1']) && <h2 className='mobile-s:text-[2.5rem] tablet:text-[4rem] text-[#FEAD20] text-6xl font-bold mr-2'><span>{Prev_value1}</span><span className='opacity-50'>{Last_value1}</span></h2>}
