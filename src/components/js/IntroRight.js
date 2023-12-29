@@ -4,11 +4,16 @@ import { characters } from "../../data/Characters";
 import useIsInViewport from "../../functions/useIsInViewport";
 import { Description, Name } from "../../data/IntroData";
 import ShuffleWholeText from "../../animations/shufflewholeText";
+import Sign from '../../images/sign.png'
 
 export default function IntroRight({code, active}){
     const [Text, setText] = useState('')
     const [Opacity, setOpacity] = useState(50)
     const [TextIndex, setTextIndex] = useState(0)
+
+    const [Text3, setText3] = useState('')
+    const [Opacity3, setOpacity3] = useState(50)
+    const [TextIndex3, setTextIndex3] = useState(0)
 
     const intro_ref = useRef(null);
     const intro_ref_visible = useIsInViewport(intro_ref);
@@ -22,7 +27,8 @@ export default function IntroRight({code, active}){
     const [TextIndex2, setTextIndex2] = useState(0)
 
     useEffect(() => {
-        ShuffleWholeText(setText, setOpacity, Description, 10, 50);
+        ShuffleWholeText(setText, setOpacity, Description[0], 10, 50);
+        ShuffleWholeText(setText3, setOpacity3, Description[1], 10, 50);
     }, [TextIndex, intro_ref_visible])
 
     useEffect(() => {
@@ -42,14 +48,23 @@ export default function IntroRight({code, active}){
     },[intro_ref_visible])
 
     return(
-        <div ref = {intro_ref} className= {`mobile-s:justify-start mobile-s:min-h-[25rem] mobile-s: px-10 bg-[#232533] tablet:bg-gradient-to-t from-[#232533] to-[#323445] w-full tablet:w-2/5 tablet:justify-center z-10 flex flex-col justify-center items-center font-medium text-white`}>
+        <div ref = {intro_ref} className= {`mobile-s:justify-start mobile-s:min-h-[16rem] mobile-s: px-10 bg-[#232533] tablet:bg-gradient-to-t from-[#232533] to-[#323445] w-full tablet:w-2/5 tablet:justify-center z-10 flex flex-col justify-center items-center font-medium text-white`}>
             <div className= {`${(intro_ref_visible) ? 'opacity-100' : 'opacity-0'} duration-1000 flex flex-col justify-center items-center mt-1`}>
                 <h2 className="mobile-s:text-[2.5rem] mobile-s:py-2 font-bold text-[3rem]"><span>{PrevText1}</span><span>{LastText1}</span></h2>
                 <h2 className="mobile-s:text-[2.5rem] font-bold text-[3rem] text-[#FEC158] -mt-7"><span>{PrevText2}</span><span>{LastText2}</span></h2>
             </div>
-            <p className= {`mobile-s: pt-4 mobile-s:text-sm opacity-${Opacity}`}>
+            {/* <span className= {`text-[#FDC058] mobile-s: pt-4 mobile-s:text-sm opacity-${Opacity}`}>
             {Text}
-            </p>
+            </span> */}
+
+            <span className= {`text-white mobile-s: pt-4 mobile-s:text-sm opacity-${Opacity3}`}>
+            {Text}
+            </span>
+
+            <span className="pt-5">
+                <img className = 'h-[5rem] pt-2' src = {Sign} />
+            </span>
+            
         </div>
     )
 }

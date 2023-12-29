@@ -21,27 +21,24 @@ text_14: 'React is a free and open-source front-end JavaScript library for build
 value_1: '04',
 value_2: ((Number(date.split(" ")[3])-2021) > 10)? +Number(date.split(" ")[3])-2021 : `0${Number(date.split(" ")[3])-2021}` ,
 
-link_1: 'View Certificates',
+link_1: null,
 link_2: null,
 
 link_1_href: null,
 link_2_href: null,
 
-link_1_button : true,
+link_1_button : null,
 link_2_button : null,
-more_button : true,
+more_button : null,
 
-more: 'View Done Projects Using Reactjs Framework',
+more: null,
 
 table: {
 
-cols : 2,
-header: ['Project', 'Reference'],
+cols : null,
+header: [],
 data : [
-    ["Thanilka's Portfolio", "View Project > "],
-    ["Market App", "View Project > "],
-    ["Calculator App", "View Project > "],
-    ["Quote App", "View Project > "]
+    
 
 ]
 
@@ -69,26 +66,24 @@ text_14: 'Django is a free and open-source, Python-based web framework that foll
 value_1: '03',
 value_2: ((Number(date.split(" ")[3])-2021) > 10)? +Number(date.split(" ")[3])-2021 : `0${Number(date.split(" ")[3])-2021}`,
 
-link_1: 'View Certificates',
+link_1: null,
 link_2: null,
 
 link_1_href: null,
 link_2_href: null,
 
-link_1_button : true,
+link_1_button : null,
 link_2_button : null,
-more_button : true,
+more_button : null,
 
-more: 'View Done Projects Using Django Framework',
+more: null,
 
 table: {
 
-cols : 2,
-header: ['Project', 'Reference'],
+cols : null,
+header: [],
 data : [
-    ["Market App", "View Project > "],
-    ["Instagram Clone", "View Project > "],
-    ["Apple Store Clone", "View Project > "]
+    
 
 ]
 
@@ -117,30 +112,24 @@ text_14: 'Tailwind CSS is an open source CSS framework. The main feature of this
 value_1: '07',
 value_2: ((Number(date.split(" ")[3])-2021) > 10)? +Number(date.split(" ")[3])-2021 : `0${Number(date.split(" ")[3])-2021}`,
 
-link_1: 'View Certificates',
+link_1: null,
 link_2: null,
 
 link_1_href: null,
 link_2_href: null,
 
-link_1_button : true,
+link_1_button : null,
 link_2_button : null,
-more_button : true,
+more_button : null,
 
-more: 'View Done Projects Using TailwindCSS Framework',
+more: null,
 
 table: {
 
-cols : 2,
-header: ['Project', 'Reference'],
+cols : null,
+header: [],
 data : [
-    ["Market App", "View Project > "],
-    ["Instagram Clone", "View Project > "],
-    ["Apple Store Clone", "View Project > "],
-    ["Thanilka's Portfolio", "View Project > "],
-    ["Market App", "View Project > "],
-    ["Calculator App", "View Project > "],
-    ["Quote App", "View Project > "]
+    
 
 ]
 
@@ -169,28 +158,24 @@ text_14: 'Redux is an open-source JavaScript library for managing and centralizi
 value_1: '05',
 value_2: ((Number(date.split(" ")[3])-2021) > 10)? +Number(date.split(" ")[3])-2021 : `0${Number(date.split(" ")[3])-2021}`,
 
-link_1: 'View Certificates',
+link_1: null,
 link_2: null,
 
 link_1_href: null,
 link_2_href: null,
 
-link_1_button : true,
+link_1_button : null,
 link_2_button : null,
-more_button : true,
+more_button : null,
 
-more: 'View Done Projects Using Redux Framework',
+more: null,
 
 table: {
 
 cols : 2,
-header: ['Project', 'Reference'],
+header: [],
 data : [
-    ["Market App", "View Project > "],
-    ["Instagram Clone", "View Project > "],
-    ["Apple Store Clone", "View Project > "],
-    ["Thanilka's Portfolio", "View Project > "],
-    ["Market App", "View Project > "],
+    
 
 ]
 

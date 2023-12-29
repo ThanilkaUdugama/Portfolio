@@ -14,10 +14,18 @@ export default function ContactForm({bg_color}){
     const [sending_msg, setSendingMsg ] = useState(false)
     const [set_err, setErrMsg] = useState(['',false])
 
+    const [field_colors, setFieldColors] = useState({'name' : '#FEAD20', 'email': '#FEAD20', 'message': '#FEAD20' })
+
     const ref = useRef(null);
     const ref_visible = useIsInViewport(ref);
+    const [button_color, setButtonColor] = useState('#FEAD20')
 
     const [formdata, setFormData] = useState({name: '', email: '', message : ''})
+
+
+    useEffect(()=> {
+            ((field_colors['email'] === field_colors['name']) & (field_colors['message'] === field_colors['name'])) ? setButtonColor(field_colors['name']) : setButtonColor('#EE4238')
+    }, [field_colors])
 
     const styles = {
         offscreen: {
@@ -41,22 +49,43 @@ export default function ContactForm({bg_color}){
 
     const onUpload = async () =>{
         if (formdata.name === '' | formdata.email === '' | formdata.message === ''){
-            console.log('hrerere')
-            setErrMsg(['All The Fields Are Mandatory!', true])
+            if (formdata.name === '') setFieldColors(field_colors => ({...field_colors, 'name' : '#EE4238'}))
+            else setFieldColors(field_colors => ({...field_colors, 'name' : '#49AF41'}))
+            
+            if (formdata.email === '') setFieldColors(field_colors => ({...field_colors, 'email' : '#EE4238'}))
+            else setFieldColors(field_colors => ({...field_colors, 'email' : '#49AF41'}))
+
+            if (formdata.message === '') setFieldColors(field_colors => ({...field_colors, 'message' : '#EE4238'}))
+            else setFieldColors(field_colors => ({...field_colors, 'message' : '#49AF41'}))
+
+            if (formdata.email !== '' & !formdata.email.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
+                setFieldColors(field_colors => ({...field_colors, 'email' : '#EE4238'}))
+                setErrMsg(['All The Fields Are Mandatory and Email is Invalid!', true])
+            }
+            else{
+                setErrMsg(['All The Fields Are Mandatory!', true])
+            }
         }else if (!formdata.email.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
             setErrMsg(['Invalid Email!', true])
+            setFieldColors(field_colors => ({...field_colors, 'name' : '#49AF41'}))
+            setFieldColors(field_colors => ({...field_colors, 'email' : '#EE4238'}))
+            setFieldColors(field_colors => ({...field_colors, 'message' : '#49AF41'}))
         }
         else {
+            setFieldColors(field_colors => ({...field_colors, 'name' : '#49AF41'}))
+            setFieldColors(field_colors => ({...field_colors, 'email' : '#49AF41'}))
+            setFieldColors(field_colors => ({...field_colors, 'message' : '#49AF41'}))
             setSendingMsg(true)
             emailjs.send('service_iid7tvp', 'template_89rbplr', formdata)
             .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
             setSendingMsg(false)
             setErrMsg(['', false])
             setSentMsg(true)
             setFormData({name: '', email: '', message : ''})
+            setFieldColors(field_colors => ({...field_colors, 'name' : '#FEAD20'}))
+            setFieldColors(field_colors => ({...field_colors, 'email' : '#FEAD20'}))
+            setFieldColors(field_colors => ({...field_colors, 'message' : '#FEAD20'}))
             }, function(error) {
-            console.log('FAILED...', error);
             setErrMsg([error, true])
             });
         }
@@ -68,22 +97,23 @@ export default function ContactForm({bg_color}){
 
 
     return(
-        <div id="contact-form" className="-mt-10">
+        <div id="contact-form" className="">
             <ContactTitle title = "Contact Me" bg_color={bg_color} active = {active} />
             <div ref={ref} className={` mobile-s:-mt-[2rem] mobile-s:px-8 tablet:px-[8rem] pb-10 flex flex-col justify-center items-stretch pt-3 bg-[#232533] w-full`}>
                 <motion.div
                 initial= {styles['offscreen']}    
                 whileInView = {styles['onscreen']}                
-                className= {`duration-0 pt-0 rounded-lg flex-col items-center justify-center`}>
-                    <FormItem field='Name' name = 'name' value = {formdata['name']} onChange = {onChange} type = 'text'/>
-                    <FormItem field='Email' name = 'email' value = {formdata['email']} onChange = {onChange} type = 'text'/>
-                    <FormItem field='Message' name = 'message' value = {formdata['message']} onChange = {onChange} type = 'textarea'/>
+                className= {`duration-0 mt-1 rounded-lg flex-col items-center justify-center`}>
+                    <FormItem color = {field_colors['name']} field='Name' name = 'name' value = {formdata['name']} onChange = {onChange} type = 'text'/>
+                    <FormItem color = {field_colors['email']} field='Email' name = 'email' value = {formdata['email']} onChange = {onChange} type = 'text'/>
+                    <FormItem color = {field_colors['message']} field='Message' name = 'message' value = {formdata['message']} onChange = {onChange} type = 'textarea'/>
                     <div className="flex justify-center">
                         <motion.button 
                         whileHover={{ scale: 1.2 }}
                         whileTap={{ scale: 0.9 }}
                         onClick={()=> onUpload()}
-                        className="h-16 w-16 -mt-8 border-8 border-[#232533] bg-[#FEAD20] text-white flex justify-center items-center rounded-full"><svg className = "mobile-s: w-7 mobile-s: h-7 "xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 512 512"><path fill="currentColor" d="m368.4 18.3l-55.7 55.8l125.2 125.2l55.7-55.7c21.9-21.9 21.9-57.3 0-79.2l-46-46.1c-21.9-21.9-57.3-21.9-79.2 0zM288 94.6l-9.2 2.8l-144.1 43.2c-19.9 6-35.7 21.2-42.3 41L3.8 445.8c-3.8 11.3-1 23.9 7.3 32.4l153.6-153.5c-3-6.3-4.7-13.3-4.7-20.7c0-26.5 21.5-48 48-48s48 21.5 48 48s-21.5 48-48 48c-7.4 0-14.4-1.7-20.7-4.7L33.7 500.9c8.6 8.3 21.1 11.2 32.4 7.3l264.3-88.6c19.7-6.6 35-22.4 41-42.3l43.2-144.1l2.8-9.2L288 94.6z"/></svg></motion.button>
+                        style = {{'background-color' : button_color }}
+                        className="duration-0 border-[0.4rem] border-[#232533] h-16 w-16 -mt-8 bg-[#FEAD20] text-white flex justify-center items-center rounded-full"><svg className="" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none"><path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="m21.433 4.861l-6 15.5a1 1 0 0 1-1.624.362l-3.382-3.235l-2.074 2.073a.5.5 0 0 1-.853-.354v-4.519L2.309 9.723a1 1 0 0 1 .442-1.691l17.5-4.5a1 1 0 0 1 1.181 1.329M19 6.001L8.032 13.152l1.735 1.66z"/></g></svg></motion.button>
                     </div>
                 </motion.div>
             </div>

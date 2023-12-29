@@ -30,18 +30,17 @@ link_2_href: null,
 
 link_1_button : null,
 link_2_button : null,
-more_button : true,
+more_button : null,
 
-more: "View Done Projects Using Numpy",
+more: null,
 
 table: {
 
-cols : 2,
-header: ["Project", "Reference"],
+cols : null,
+header: [],
 data : [
 
-    ["Linear Regression", "View Project"],
-    ["Matrix Calculator", "View Project"]
+    
 ]
 
 }
@@ -76,18 +75,15 @@ link_2_href: null,
 
 link_1_button : null,
 link_2_button : null,
-more_button : true,
+more_button : null,
 
-more: "View Done Projects Using Pandas",
+more: null,
 
 table: {
 
-cols : 2,
-header: ["Project", "Reference"],
+cols : null,
+header: [],
 data : [
-
-    ["Weather Predictor", "View Project"],
-    ["Fish Classifier", "View Project"]
 ]
 
 }
@@ -122,18 +118,16 @@ link_2_href: null,
 
 link_1_button : null,
 link_2_button : null,
-more_button : true,
+more_button : null,
 
 more: null,
 
 table: {
 
 cols : null,
-header: ["Project", "Reference"],
+header: [],
 data : [
 
-    ["Dog Classifier", "View Project"],
-    ["Numbers Classifier", "View Project"]
 ]
 
 }
@@ -175,11 +169,9 @@ more: null,
 table: {
 
 cols : null,
-header: ["Project", "Reference"],
+header: [],
 data : [
 
-    ["Sign Recognizer", "View Project >"],
-    ["Summerizer", "View Project >"]
 ]
 
 }

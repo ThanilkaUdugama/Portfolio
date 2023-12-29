@@ -29,17 +29,16 @@ link_2_href: null,
 
 link_1_button : null,
 link_2_button : null,
-more_button : true,
+more_button : null,
 
-more: 'View Done Projects using Selenium',
+more: null,
 
 table: {
 
 cols : 2,
-header: ["Project", "Reference"],
+header: [],
 data : [
-    ["Instagram Post Automation", "Reference"],
-    ["FB Friends Online Status Tracker", "Reference"]
+    
 ]
 
 }
@@ -75,16 +74,16 @@ link_2_href: null,
 
 link_1_button : null,
 link_2_button : null,
-more_button : true,
+more_button : null,
 
-more: 'View Done Projects using Puppeteer',
+more: null,
 
 table: {
 
-cols : 2,
-header: ["Project", "Reference"],
+cols : null,
+header: [],
 data : [
-    ["Google Finance Data Scraper", "Reference"],
+    
 ]
 
 }

@@ -19,33 +19,24 @@ const EducationQualifications = {
     value_1: '2018',
     value_2: '9A',
     
-    link_1: 'View Ordinary Level Certificate',
+    link_1: null,
     link_2: null,
     
     link_1_href: null,
     link_2_href: null,
 
-    link_1_button : true,
+    link_1_button : null,
     link_2_button : false,
-    more_button : true,
+    more_button : null,
 
     
-    more: 'View Detailed Results of Ordinary Level Examination',
+    more: null,
     
     table: {
     
-    cols : 2,
-    header: ['Subject', 'Grade'],
+    cols : null,
+    header: [],
     data : [
-    ['Mathematics', 'A'],
-    ['Science', 'A'],
-    ['ICT', 'A'],
-    ['English', 'A'],
-    ['Sinhala', 'A'],
-    ['Geography', 'A'],
-    ['History', 'A'],
-    ['Art', 'A'],
-    ['Sinhala', 'A']
     
     ]
     
@@ -73,7 +64,7 @@ const EducationQualifications = {
     value_1: '2021',
     value_2: '1.6047',
     
-    link_1: 'View Advanced Level Certificate',
+    link_1: null,
     link_2: null,
     
     link_1_href: null,
@@ -81,22 +72,16 @@ const EducationQualifications = {
     
     link_1_button : true,
     link_2_button : null,
-    more_button : true,
+    more_button : null,
     
-    more: 'View Detailed Results of Advanced Level Examination',
+    more: null,
     
     table: {
     
-    cols : 2,
-    header: ['Subject','Grade'],
+    cols : null,
+    header: [],
     data : [
-        ['Combined Mathematics', 'B'],
-        ['Physics', 'A'],
-        ['Chemistry', 'B'],
-        ['General English', 'A'],
-        ['Z-Score', '1.6047'],
-        ['District Rank (Kandy)', '156']
-    
+        
     ]
     
     }
@@ -131,20 +116,16 @@ const EducationQualifications = {
     
     link_1_button : null,
     link_2_button : null,
-    more_button : true,
+    more_button : null,
     
-    more: 'View Detailed Results of Degree of Computer Science.',
+    more: null,
     
     table: {
     
-    cols : 3,
-    header: ['Module', 'Grade', 'GPV'],
+    cols : null,
+    header: [],
     data : [
         
-        ['Mathematics for Computer Science – I', 'A', '4.0'],
-        ['Fundamentals of Statistics', 'A', '4.0'],
-        ['Structured Programming – I', 'A+', '4.0'],
-        ['Web Fundamentals', 'A+', '4.0']
     
     ]
     

@@ -52,7 +52,7 @@ export default function FullQuote({quotes, images, authors}){
     <div className = "mobile-s:px-[2rem] tablet:px-[10rem] mobile-s:pt-12 bg-[#232533]  flex flex-col tablet:flex-row items-center">
         
         <div className={`my-[3rem] opacity-${img_vis} mobile-s: w-full flex flex-col items-start justify-center items-center w-1/2 duration-300`}>
-            <div className="mobile-s:text-[2rem] mobile-s:min-h-[14rem] tablet:text-[2rem] text-white font-semibold text-3xl"><span>{PrevText}</span><span className="opacity-50">{LastText}</span></div>
+            <div className="mobile-s:text-[2rem] mobile-s:min-h-[14rem] mobile-s:min-h-[16rem] tablet:text-[2rem] text-white font-semibold text-3xl"><span>{PrevText}</span><span className="opacity-50">{LastText}</span></div>
             <div className="flex p-10">
             {quotes.map(item => <div className= {`mobile-s:w-[0.8rem] mobile-s:h-[0.5rem] mobile-s:mx-[0.5rem] mobile-m:w-[1.5rem] w-16 h-2 rounded transistion duration-500 mx-3 ${(quotes.indexOf(item) == index)? 'bg-[#FEAD20]' : 'bg-[#323445]'}`}></div>)}
         </div>
